@@ -1,5 +1,9 @@
-class Circle {
+class Notes {
   constructor() {
-    this.radius = 10
+    this.notesArray = []  
   }
-}
+
+  add(body) {
+    this.notesArray.push(body)
+  }
+};
