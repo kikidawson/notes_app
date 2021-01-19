@@ -3,6 +3,7 @@ describe("#new", () => {
     var notes = new Notes();
     expect(notes).isTrue();
   })
+
 });
 
 describe("#add", () => {
@@ -17,6 +18,12 @@ describe("#add", () => {
     notes.add("First note")
     notes.add("Second note")
     expect(notes.getNotesArray()).toEqual(["First note", "Second note"])
+  })
+
+  it("Should check CSS red failure", () => {
+    var notes = new Notes();
+    notes.add("FAIL ONE")
+    expect(notes.getNotesArray()).toEqual(['SHOULD FAIL'])
   })
 
 });
