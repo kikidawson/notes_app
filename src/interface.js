@@ -1,11 +1,11 @@
 function ready(sendNote) {
   if (document.readyState != 'loading') {
-    console.log('this Hello')
+    console.log('Please wait for the DOM to load')
     fn()
 
   } else {
     document.addEventListener('DOMContentLoaded', sendNote)
-
+    console.log('DOM has loaded')
   }
 }
 
@@ -17,3 +17,5 @@ function sendNote() {
   document.getElementById("new-note").value = "" //Clean the input after sending
   event.preventDefault();
 }
+
+ready()
