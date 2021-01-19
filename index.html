@@ -10,8 +10,11 @@
   <body>
     <h1>Notes App</h1>
     <form onsubmit="sendNote()">
-      <input type="textarea" id="new-note" required>
+      <input type="textarea" id="new-note" placeholder="Start typing..." required>
       <input type="submit" value="Create Note">
     </form>
+    <div id="notes-wrapper">
+      <h2>Latest Notes</h2>
+    </div>
   </body>
 </html>
