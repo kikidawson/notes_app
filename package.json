@@ -16,7 +16,6 @@
     "url": "https://github.com/kikidawson/notes_app/issues"
   },
   "homepage": "https://github.com/kikidawson/notes_app#readme",
-  "dependencies": {},
   "devDependencies": {
     "http-server": "^0.12.3"
   }
