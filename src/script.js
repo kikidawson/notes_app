@@ -3,6 +3,10 @@ class Notes {
     this.notesArray = []  
   }
 
+  getNotesArray() {
+    return this.notesArray
+  }
+
   add(body) {
     this.notesArray.push(body)
   }

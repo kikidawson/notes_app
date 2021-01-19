@@ -1,30 +1,22 @@
-// function testCircleRadiusDefaultsTo10() {
-//   var circle = new Circle();
-//   assert.isTrue("Should be true", circle.radius === 10);
-//   assert.isEqual("Should equal", circle.radius, 10)
-//   assert.isEqual("Should equal", "kiki", "kiki")
-// };
-//
-// testCircleRadiusDefaultsTo10();
+describe("#new", () => {
+  it("Should be new instance of class", () => {
+    var notes = new Notes();
+    expect(notes).isTrue();
+  })
+});
 
-function testNotes() {
-  var notes = new Notes();
-  assert.isTrue("Check class instantiated", notes)
-}
+describe("#add", () => {
+  it("Allows new notes to be added", () => {
+    var notes = new Notes();
+    notes.add("First note")
+    expect(notes.getNotesArray()).toEqual(["First note"])
+  })
 
-testNotes()
+  it("Can add multiple notes", () => {
+    var notes = new Notes();
+    notes.add("First note")
+    notes.add("Second note")
+    expect(notes.getNotesArray()).toEqual(["First note", "Second note"])
+  })
 
-function addNotes() {
-  var notes = new Notes();
-  notes.add("Our first note.")
-  assert.isEqual("Allows notes to be added", notes.notesArray[0], ["Our first note."])
-}
-
-addNotes()
-
-// function startsWithEmptyNotes() {
-//   var notes = new Notes();
-//   assert.isEqual()
-// }
-//
-// startsWithEmptyNotes()
+});
