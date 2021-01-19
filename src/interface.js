@@ -1,20 +1,19 @@
-function ready(fn) {
-  if (document.readyState != 'loading'){
-      console.log('Hello')
+function ready(sendNote) {
+  if (document.readyState != 'loading') {
+    console.log('this Hello')
     fn()
+
   } else {
-    document.addEventListener('DOMContentLoaded', fn)
+    document.addEventListener('DOMContentLoaded', sendNote)
+
   }
 }
 
-function fn() {
+function sendNote() {
   var notes = new Notes();
-    console.log('Hello')
-    document.getElementById("#create-note").addEventListener("click", function(event) {
-    console.log('Hello')
-    notes.add(document.getElementById('#new-note').value);
-    event.preventDefault();
-  }, false);
+  var getNote = document.getElementById("new-note").value
+  notes.add(getNote)
+  console.log(notes.notesArray)
+  document.getElementById("new-note").value = "" //Clean the input after sending
+  event.preventDefault();
 }
-
-ready();
