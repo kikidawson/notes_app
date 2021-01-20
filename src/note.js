@@ -8,8 +8,10 @@ class Note {
   }
 
   getDisplayElement() {
-    let textElement = document.createElement('p')
+    let paraElement = document.createElement('p')
+    let textElement = document.createElement('a')
+    paraElement.appendChild(textElement)
     textElement.textContent = this.getText().substring(0,20) + '...'
-    return textElement
+    return paraElement
   }
 }

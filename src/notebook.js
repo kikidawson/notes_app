@@ -8,8 +8,7 @@ class Notebook {
     return this.notesArray
   }
 
-  add(text) {
-    var note = new this.noteClass(text)
+  add(note) {
     this.notesArray.push(note)
   }
 };
