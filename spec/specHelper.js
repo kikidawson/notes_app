@@ -22,22 +22,22 @@ function expect(actual) {
     },
 
     isTrue: function() {
-      try {
         if (actual) {
           document.write("<css style='color: green'> Pass </css><p>")
         } else {
           document.write("<css style='color: red'> Fail </css><p>")
         }
-      } catch(err) {
-        console.log("working?")
-      }
     }
   }
 }
 
 function it(label, callback) {
-  document.write(`---> Test: ${label} ---> Result: `)
-  callback()
+  try {
+    document.write(`---> Test: ${label} ---> Result: `)
+    callback()
+  } catch(err) {
+    document.write("<css style='color: red'> Error </css><p>")
+  }
 }
 
 function describe(label, callback) {
