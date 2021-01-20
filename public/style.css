@@ -1,10 +1,10 @@
 #new-note {
-  height:200px;
-  width: 400px;
-  font-size:14pt;
+  height: 200px;
+  width: 100%;
+  font-size: 14pt;
 }
 
-body {  
+body {
   text-align: center;
   font-family: 'Yusei Magic', sans-serif;
   background-color: #FBAB7E;
@@ -13,15 +13,18 @@ body {
 
 .container {
   border: 2px solid black;
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
   width: 30%;
-  height: 55%;
-  background-color: rgba(243,245,228,0.5);
+  background-color: rgba(243, 245, 228, 0.5);
   margin: 0 auto;
 }
 
 h1 {
   font-size: 2.3em;
   text-decoration: underline;
+  overflow-wrap: break-word;
 }
 
 textarea {
@@ -30,15 +33,29 @@ textarea {
 
 input[type="submit"] {
   height: 50px;
-  width: 120px;
+  max-width: 120px;
+  white-space: break-spaces;
   border-radius: 10px;
   background-color: goldenrod;
   font-size: 1.1em;
   font-weight: lighter;
   font-family: 'Yusei Magic', sans-serif';
+
 }
 
 input[type="submit"]:hover {
   background-color: gold;
-  
+
+}
+
+div#notes-wrapper>p {
+  line-break: anywhere;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+
+  }
 }
