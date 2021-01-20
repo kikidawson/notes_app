@@ -8,7 +8,7 @@
 //   }
 // }
 
-var notes = new Notes();
+var notebook = new Notebook();
 let button = document.getElementById('create-note')
 
 button.addEventListener("click", function() {
@@ -18,7 +18,7 @@ button.addEventListener("click", function() {
   let note = text
   area.value = ''
 
-  notes.add(note)
+  notebook.add(note)
 
   displayNotes()
 })
@@ -40,7 +40,7 @@ function displayNotes() {
   let noteDiv = document.getElementById('notes-wrapper')
   noteDiv.innerHTML = ''
 
-  notes.getNotesArray().forEach(function(note) {
+  notebook.getNotesArray().forEach(function(note) {
     let textElement = document.createElement('p')
     textElement.textContent = note.substring(0,20) + '...'
     noteDiv.appendChild(textElement)

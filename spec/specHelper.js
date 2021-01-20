@@ -22,10 +22,14 @@ function expect(actual) {
     },
 
     isTrue: function() {
-      if (actual) {
-        document.write("<css style='color: green'> Pass </css><p>")
-      } else {
-        document.write("<css style='color: red'> Fail </css><p>")
+      try {
+        if (actual) {
+          document.write("<css style='color: green'> Pass </css><p>")
+        } else {
+          document.write("<css style='color: red'> Fail </css><p>")
+        }
+      } catch(err) {
+        console.log("working?")
       }
     }
   }
@@ -40,5 +44,3 @@ function describe(label, callback) {
   document.write(`${label}<p>`)
   callback()
 }
-
-

@@ -1,6 +1,6 @@
-class Notes {
+class Notebook {
   constructor() {
-    this.notesArray = []  
+    this.notesArray = []
   }
 
   getNotesArray() {
