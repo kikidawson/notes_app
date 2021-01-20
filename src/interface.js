@@ -15,35 +15,19 @@ button.addEventListener("click", function() {
 
   let area = document.getElementById('new-note')
   let text = area.value
-  let note = text
   area.value = ''
 
-  notebook.add(note)
+  notebook.add(text)
 
   displayNotes()
 })
-
-
-// function sendNote() {
-//   var getNote = document.getElementById("new-note").value
-//   notes.add(getNote)
-//   document.getElementById("new-note").value = "" //Clean the input after sending
-//   event.preventDefault();
-//   var createNote = document.createElement("P")
-//   createNote.innerText = notes.notesArray.pop()
-//   document.getElementById("notes-wrapper").appendChild(createNote);
-// }
-
-// ready()
 
 function displayNotes() {
   let noteDiv = document.getElementById('notes-wrapper')
   noteDiv.innerHTML = ''
 
   notebook.getNotesArray().forEach(function(note) {
-    let textElement = document.createElement('p')
-    textElement.textContent = note.substring(0,20) + '...'
-    noteDiv.appendChild(textElement)
+    noteDiv.appendChild(note.getDisplayElement())
   });
 
 }

@@ -1,13 +1,15 @@
 class Notebook {
-  constructor() {
+  constructor(noteClass = Note) {
     this.notesArray = []
+    this.noteClass = noteClass
   }
 
   getNotesArray() {
     return this.notesArray
   }
 
-  add(body) {
-    this.notesArray.push(body)
+  add(text) {
+    var note = new this.noteClass(text)
+    this.notesArray.push(note)
   }
 };

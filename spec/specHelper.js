@@ -4,11 +4,11 @@ function expect(actual) {
     toEqual: function(expected) {
       if (actual.constructor.name === "Array") {
         if (actual.length != expected.length) {
-          return document.write("<css style='color: red>Fail</css> - Array size different. <p>")
+          return document.write(`<css style='color: red'> Fail <br> Expect array length: ${expected.length} <br>Got array length: ${actual.length} </css><p>`)
         }
         for (let i = 0; i < actual.length; i++) {
           if (expected[i] != actual[i]) {
-            return document.write("<css style='color: red'> Fail </css><p>")
+            return document.write(`<css style='color: red'> Fail <br> Expect: ${expected} <br>Got: ${actual} </css><p>`)
           } else {
             return document.write("<css style='color: green'> Pass </css><p>")
           }
@@ -17,7 +17,7 @@ function expect(actual) {
       if (actual === expected) {
         document.write("<css style='color: green'> Pass </css><p>")
       } else {
-        document.write("<css style='color: red'> Fail </css><p>")
+        document.write(`<css style='color: red'> Fail <br> Expect: ${expected} <br>Got: ${actual} </css><p>`)
       }
     },
 
@@ -25,7 +25,7 @@ function expect(actual) {
         if (actual) {
           document.write("<css style='color: green'> Pass </css><p>")
         } else {
-          document.write("<css style='color: red'> Fail </css><p>")
+          document.write(`<css style='color: red'> Fail <br> Expect: ${expected} <br>Got: ${actual} </css><p>`)
         }
     }
   }
@@ -36,7 +36,7 @@ function it(label, callback) {
     document.write(`---> Test: ${label} ---> Result: `)
     callback()
   } catch(err) {
-    document.write("<css style='color: red'> Error </css><p>")
+    document.write(`<css style='color: red'> Error: ${err.message}</css><p>`)
   }
 }
 
