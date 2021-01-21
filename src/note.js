@@ -14,4 +14,10 @@ class Note {
     textElement.textContent = this.getText().substring(0,20) + '...'
     return paraElement
   }
+
+  getDivElement() {
+    let divElement = document.createElement('div')
+    divElement.textContent = this.getText()
+    return divElement
+  }
 }

@@ -20,18 +20,53 @@ button.addEventListener("click", function() {
   notebook.add(note)
   
   displayNotes()
+  createDivs()
 })
 
 function displayNotes() {
   let noteDiv = document.getElementById('notes-wrapper')
   noteDiv.innerHTML = ''
 
-  notebook.getNotesArray().forEach(function(note,index) {
+  notebook.getNotesArray().forEach(function(note, index) {
     let getElement = note.getDisplayElement()
     let getAnchor = getElement.getElementsByTagName('a');
     getAnchor[0].setAttribute("href", `#${index}`);
-    getAnchor[0].setAttribute("id", `${index}`);
     noteDiv.appendChild(getElement)
   });
-
 }
+
+function closeAnchorButton() {
+  let closeAnchor = document.createElement('a')
+  closeAnchor.setAttribute("href", "#close");
+  closeAnchor.setAttribute("title", "Close");
+  closeAnchor.setAttribute("class", "close");
+  closeAnchor.innerHTML = 'X'
+  return closeAnchor
+}
+
+function createModal(index) {
+  let outerDiv = document.createElement('div')
+  outerDiv.setAttribute("id", `${index}`);
+  outerDiv.setAttribute("class", "modalDialog");
+  return outerDiv
+}
+
+function createInnerModal(note) {
+  let innerDiv = note.getDivElement()
+  innerDiv.appendChild(closeAnchorButton())
+  return innerDiv
+}
+
+function createDivs() {
+  let fullTextDiv = document.getElementById('full-text-wrapper')
+  fullTextDiv.innerHTML = ''
+  notebook.getNotesArray().forEach(function(note, index) {
+    let outerDiv = createModal(index)
+    let innerDiv = createInnerModal(note)
+    fullTextDiv.appendChild(outerDiv)
+    outerDiv.appendChild(innerDiv)
+  });
+}
+
+
+
