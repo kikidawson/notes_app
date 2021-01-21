@@ -16,12 +16,44 @@
   </head>
   <body>
     <div class="container">
-    <h1> Notes App </h1>
-      <textarea width='100%' id="new-note" style="resize: flex" placeholder="Start typing..."></textarea>
+      <h1> Notes App </h1>
+      <textarea width='100%' id="new-note" style="resize: flex" placeholder="Start typing..." required></textarea>
       <p></p>
       <button id="create-note">Create Note</button>
-    <div id="notes-wrapper">
-      <!-- <h2>Latest Notes</h2> -->
-    </div>
-  </body>
-</html>
+      <div id="notes-wrapper">
+        <!-- <h2>Latest Notes</h2> -->
+      </div>
+      <button id="myBtn">Open Modal</button>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+      </div>
+      <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      </script>
+    </body>
+  </html>

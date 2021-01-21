@@ -12,7 +12,6 @@ var notebook = new Notebook();
 let button = document.getElementById('create-note')
 
 button.addEventListener("click", function() {
-  console.log("OMG THE EVENT LISTENER")
   let area = document.getElementById('new-note')
   let text = area.value
   area.value = ''
@@ -27,9 +26,11 @@ function displayNotes() {
   let noteDiv = document.getElementById('notes-wrapper')
   noteDiv.innerHTML = ''
 
-  notebook.getNotesArray().forEach(function(note) {
+  notebook.getNotesArray().forEach(function(note,index) {
     let getElement = note.getDisplayElement()
-    getElement.getElementsByTagName('a').href="thislink"
+    let getAnchor = getElement.getElementsByTagName('a');
+    getAnchor[0].setAttribute("href", `#${index}`);
+    getAnchor[0].setAttribute("id", `${index}`);
     noteDiv.appendChild(getElement)
   });
 
