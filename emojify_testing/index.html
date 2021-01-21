@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample page</title>
+  </head>
+  <body>
+    <div id="main">
+    </div>
+
+    <script>
+      function getPostData() {
+        const data = { "text": "Hello, :earth_africa:" }
+
+        return fetch("https://makers-emojify.herokuapp.com/", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => {
+          return response.json()
+        });
+      }
+
+      function renderPost(postData) {
+        console.log(postData)
+        let postWithEmojis = postData.emojified_text;
+        return `${postWithEmojis}`;
+      }
+
+      getPostData().then(post => {
+        let rendered = renderPost(post)
+        document.getElementById("main").innerHTML = rendered
+      })
+    </script>
+  </body>
+</html>
