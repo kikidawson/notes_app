@@ -14,7 +14,14 @@ describe("Note Class", () => {
   describe('#getDisplayElement', () => {
     it('Should return first 20 chars of the note', () => {
       var note = new Note("much longer tester note")
-      expect(note.getDisplayElement().innerHTML).toEqual("much longer tester n...")
+      expect(note.getDisplayElement().innerText).toEqual("much longer tester n...")
+    })
+  })
+
+  describe('#getDivElement', () => {
+    it('Should create div with note text inside', () => {
+      var note = new Note("tester note")
+      expect(note.getDivElement().innerHTML).toEqual("tester note")
     })
   })
 });

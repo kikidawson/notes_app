@@ -9,17 +9,8 @@ describe('Notebook Class', () => {
 
   describe("#add", () => {
     it("Allows new notes to be added", () => {
-      let note = function() {
-        return {
-          new: function(text) {
-            return text
-          }
-        }
-      }
-      var notebook = new Notebook(note);
-      // var note = new Note("First note")
+      var notebook = new Notebook();
       notebook.add("First Note")
-      console.log(notebook.getNotesArray())
       expect(notebook.getNotesArray()).toEqual(["First Note"])
     })
 
