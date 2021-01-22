@@ -5,11 +5,19 @@ class Notebook {
   }
 
   getNotesArray() {
+    this.loadLocalStorage()
     return this.notesArray
   }
 
   add(note) {
     this.notesArray.push(note)
-    console.log(this.notesArray)
+    this.saveLocalStorage()
+  }
+  saveLocalStorage() {
+    localStorage.setItem("notebook", JSON.stringify(this.getNotesArray()))
+  }
+  loadLocalStorage() {
+    let returnStorage = localStorage.getItem("notebook")
+    console.log(JSON.parse(returnStorage))
   }
 };

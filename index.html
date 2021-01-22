@@ -1,37 +1,32 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes App</title>
-    <!-- CSS Stylesheet Link -->
-    <link rel="stylesheet" href="public/style.css">
-    <!-- Google Font Link -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
-    <!-- JavaScript Link -->
-    <script defer src="src/note.js"></script>
-    <script defer src="src/notebook.js"></script>
-    <script defer src="src/interface.js"></script>
 
-  </head>
-  <body>
-    <div class="container">
-      <h1> Notes App </h1>
-      <textarea width='100%' id="new-note" style="resize: flex" placeholder="Start typing..." required></textarea>
-      <p></p>
-      <button id="create-note">Create Note</button>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes App</title>
+  <!-- CSS Stylesheet Link -->
+  <link rel="stylesheet" href="public/style.css">
+  <!-- Google Font Link -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+  <!-- JavaScript Link -->
+  <script defer src="src/note.js"></script>
+  <script defer src="src/notebook.js"></script>
+  <script defer src="src/interface.js"></script>
 
-    <div id="notes-wrapper">
-      <!-- <h2>Latest Notes</h2> -->
-    </div>
+</head>
 
-    <div id="full-text-wrapper">
-    </div>
+<body>
+  <div class="container">
+    <h1> Notes App </h1>
+    <textarea width='100%' id="new-note" style="resize: flex" placeholder="Start typing..." required></textarea>
+    <p></p>
+    <button id="create-note">Create Note</button>
+  </div>
+  <div id="notes-wrapper">
+  </div>
+  <div id="full-text-wrapper">
+  </div>
+</body>
 
-    <div id="main">
-
-    </div>
-
-  </body>
 </html>

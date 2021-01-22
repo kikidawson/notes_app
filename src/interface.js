@@ -1,21 +1,15 @@
-// function ready(sendNote) {
-//   if (document.readyState != 'loading') {
-//     console.log('Please wait for the DOM to load')
-//
-//   } else {
-//     document.addEventListener('DOMContentLoaded', sendNote)
-//     console.log('DOM has loaded')
-//   }
-// }
-
 var notebook = new Notebook();
 let button = document.getElementById('create-note')
 
-button.addEventListener("click", function() {
+button.addEventListener("click", () => {
   let area = document.getElementById('new-note')
   let text = area.value
   area.value = ''
-  console.log(text)
+  emojify(text)
+
+})
+
+function emojify(text) {
   getPostData(text).then(post => {
     let rendered = renderPost(post)
     let note = new Note(rendered)
@@ -23,14 +17,13 @@ button.addEventListener("click", function() {
     displayNotes()
     createDivs()
   })
-
-})
+}
 
 function displayNotes() {
   let noteDiv = document.getElementById('notes-wrapper')
   noteDiv.innerHTML = ''
 
-  notebook.getNotesArray().forEach(function(note, index) {
+  notebook.getNotesArray().forEach(function (note, index) {
     let getElement = note.getDisplayElement()
     let getAnchor = getElement.getElementsByTagName('a');
     getAnchor[0].setAttribute("href", `#${index}`);
@@ -63,7 +56,7 @@ function createInnerModal(note) {
 function createDivs() {
   let fullTextDiv = document.getElementById('full-text-wrapper')
   fullTextDiv.innerHTML = ''
-  notebook.getNotesArray().forEach(function(note, index) {
+  notebook.getNotesArray().forEach(function (note, index) {
     let outerDiv = createModal(index)
     let innerDiv = createInnerModal(note)
     fullTextDiv.appendChild(outerDiv)
@@ -72,19 +65,20 @@ function createDivs() {
 }
 
 function getPostData(text) {
-  const data = { "text": text }
-  console.log(data)
+  const data = {
+    "text": text
+  }
 
   return fetch("https://makers-emojify.herokuapp.com/", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-  .then(response => {
-    return response.json()
-  });
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => {
+      return response.json()
+    });
 }
 
 function renderPost(postData) {
@@ -92,3 +86,8 @@ function renderPost(postData) {
 
   return `${postWithEmojis}`;
 }
+
+// function saveLocalStorage() {
+//   localStorage.setItem("notebook", JSON.stringify(notebook.getNotesArray()))
+//   console.log(localStorage)
+// }
