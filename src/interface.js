@@ -1,6 +1,11 @@
 var notebook = new Notebook();
 let button = document.getElementById('create-note')
 
+window.onload = function() {
+  console.log("window.onload")
+  notebook.loadLocalStorage();
+} 
+
 button.addEventListener("click", () => {
   let area = document.getElementById('new-note')
   let text = area.value

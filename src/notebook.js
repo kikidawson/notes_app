@@ -18,6 +18,10 @@ class Notebook {
   }
   loadLocalStorage() {
     let returnStorage = localStorage.getItem("notebook")
-    console.log(JSON.parse(returnStorage))
+    let parsedStorage = JSON.parse(returnStorage)
+    for (const [key, value] of Object.entries(parsedStorage)){
+      this.notesArray << value.text
+    }
+    console.log(this.notesArray)
   }
 };
