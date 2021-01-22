@@ -15,12 +15,15 @@ button.addEventListener("click", function() {
   let area = document.getElementById('new-note')
   let text = area.value
   area.value = ''
-  let note = new Note(text)
+  console.log(text)
+  getPostData(text).then(post => {
+    let rendered = renderPost(post)
+    let note = new Note(rendered)
+    notebook.add(note)
+    displayNotes()
+    createDivs()
+  })
 
-  notebook.add(note)
-  
-  displayNotes()
-  createDivs()
 })
 
 function displayNotes() {
@@ -68,5 +71,24 @@ function createDivs() {
   });
 }
 
+function getPostData(text) {
+  const data = { "text": text }
+  console.log(data)
 
+  return fetch("https://makers-emojify.herokuapp.com/", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => {
+    return response.json()
+  });
+}
 
+function renderPost(postData) {
+  let postWithEmojis = postData.emojified_text;
+
+  return `${postWithEmojis}`;
+}

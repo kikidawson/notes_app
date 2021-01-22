@@ -10,5 +10,6 @@ class Notebook {
 
   add(note) {
     this.notesArray.push(note)
+    console.log(this.notesArray)
   }
 };
